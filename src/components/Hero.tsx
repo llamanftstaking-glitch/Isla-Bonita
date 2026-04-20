@@ -17,8 +17,8 @@ export default function Hero() {
       {/* Parallax background */}
       <motion.div className="absolute inset-0" style={{ y }}>
         <Image
-          src="/mural.jpg"
-          alt="Isla Bonita ambiance"
+          src="/interior-cherry-blossom.jpg"
+          alt="Isla Bonita dining room"
           fill
           className="object-cover object-center scale-110"
           sizes="100vw"

@@ -69,8 +69,8 @@ export default function Drinks() {
             className="relative rounded-2xl overflow-hidden bg-[#130f09] border border-[#2a2010]/80 group cursor-pointer md:row-span-2"
           >
             <Image
-              src="/cocktail-1.jpg"
-              alt="Limone Spritz"
+              src="/cocktail-lemon-boat.jpg"
+              alt="Lemon Boat cocktail on nautical prop"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -80,12 +80,11 @@ export default function Drinks() {
             <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-[#c9a84c] text-black font-inter">
               Signature
             </div>
-            <div className="absolute top-4 right-4 font-playfair text-xl text-white/90">$14</div>
             {/* Bottom glass card */}
             <div className="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-sm bg-black/20 border-t border-white/5">
-              <h3 className="font-playfair text-2xl text-white mb-1">Limone Spritz</h3>
+              <h3 className="font-playfair text-2xl text-white mb-1">Lemon Boat</h3>
               <p className="font-inter text-sm text-[#c8b89a]/70 leading-relaxed">
-                Fresh lemon hollowed and filled with a citrus spritz — light, bright, and unforgettable.
+                Fresh lemon hollowed and filled with a citrus spritz — served on our iconic nautical boat.
               </p>
             </div>
           </motion.div>
@@ -98,20 +97,19 @@ export default function Drinks() {
             className="relative rounded-2xl overflow-hidden bg-[#130f09] border border-[#2a2010]/80 group cursor-pointer"
           >
             <Image
-              src="/cocktail-2.jpg"
-              alt="Lemon Boat"
+              src="/cocktail-shell-box.jpg"
+              alt="Shell cocktail in gold terrarium"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
             <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 border border-white/20 text-white font-inter backdrop-blur-sm">
-              Fan Favorite
+              House Special
             </div>
-            <div className="absolute top-4 right-4 font-playfair text-xl text-white/90">$14</div>
             <div className="absolute bottom-0 left-0 right-0 p-5">
-              <h3 className="font-playfair text-xl text-white mb-1">Lemon Boat</h3>
-              <p className="font-inter text-xs text-[#c8b89a]/60">Nautical presentation, dehydrated citrus wheel.</p>
+              <h3 className="font-playfair text-xl text-white mb-1">Shell Cocktail</h3>
+              <p className="font-inter text-xs text-[#c8b89a]/60">Served in a gold terrarium with starfish & sand.</p>
             </div>
           </motion.div>
 
@@ -123,8 +121,8 @@ export default function Drinks() {
             className="relative rounded-2xl overflow-hidden bg-[#130f09] border border-[#2a2010]/80 group cursor-pointer"
           >
             <Image
-              src="/peroni.jpg"
-              alt="Peroni Happy Hour"
+              src="/cocktail-tiki-mugs.jpg"
+              alt="Tiki mug cocktails"
               fill
               className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -132,9 +130,9 @@ export default function Drinks() {
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
             <div className="absolute inset-0 flex items-center px-6">
               <div>
-                <p className="font-inter text-[#c9a84c] text-[10px] tracking-[0.4em] uppercase mb-2">On Draft & Bottle</p>
-                <h3 className="font-playfair text-2xl text-white mb-1">Peroni Nastro Azzurro</h3>
-                <p className="font-inter text-xs text-[#c8b89a]/60 max-w-[200px]">Premium Italian lager. Perfect for happy hour.</p>
+                <p className="font-inter text-[#c9a84c] text-[10px] tracking-[0.4em] uppercase mb-2">Tropical Collection</p>
+                <h3 className="font-playfair text-2xl text-white mb-1">Tiki Cocktails</h3>
+                <p className="font-inter text-xs text-[#c8b89a]/60 max-w-[200px]">Caribbean-inspired cocktails in hand-painted tiki mugs.</p>
                 <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/30">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#c9a84c]" />
                   <span className="font-inter text-[#c9a84c] text-[10px] tracking-wider uppercase">Happy Hour 4–7 PM</span>

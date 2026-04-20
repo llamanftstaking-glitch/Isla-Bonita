@@ -5,33 +5,33 @@ import { useRef, useState } from "react";
 
 const photos = [
   {
-    src: "/cocktail-1.jpg",
-    alt: "Lemon Spritz",
-    label: "Signature Cocktail",
+    src: "/interior-cherry-blossom.jpg",
+    alt: "Isla Bonita dining room with cherry blossoms",
+    label: "The Ambiance",
     span: "col-span-1 row-span-2",
   },
   {
-    src: "/food-pasta.jpg",
-    alt: "Pasta Gamberi",
-    label: "Pasta Gamberi",
+    src: "/cocktail-shell-box.jpg",
+    alt: "Shell cocktail in gold terrarium",
+    label: "Signature Cocktails",
     span: "col-span-1 row-span-1",
   },
   {
-    src: "/peroni.jpg",
-    alt: "Happy Hour",
-    label: "Happy Hour Specials",
+    src: "/food-steak-asparagus.jpg",
+    alt: "Steak with asparagus and rosemary",
+    label: "Prime Steak",
     span: "col-span-1 row-span-1",
   },
   {
-    src: "/cocktail-2.jpg",
-    alt: "Lemon Boat",
-    label: "Lemon Boat",
+    src: "/cocktail-tiki-mugs.jpg",
+    alt: "Tiki mug cocktails",
+    label: "Tiki Cocktails",
     span: "col-span-1 row-span-1",
   },
   {
-    src: "/mural.jpg",
-    alt: "Our Space",
-    label: "The Ambiance",
+    src: "/event-balloon-party.jpg",
+    alt: "Private event setup with balloons",
+    label: "Private Events",
     span: "col-span-2 row-span-1",
   },
 ];

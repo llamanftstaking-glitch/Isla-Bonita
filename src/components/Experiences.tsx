@@ -24,7 +24,7 @@ const experiences = [
     label: "Happy Hour",
     time: "4 PM – 7 PM",
     timeLabel: "Mon – Sun",
-    desc: "Every single day. Premium cocktails, cold beer, and $6 appetizers. The best hour in Washington Heights.",
+    desc: "Every single day. Premium cocktails, cold beer, and $6 appetizers. The best hour in Inwood.",
     highlights: ["Cocktails $10", "Wine $6", "Beer $4", "Appetizers $6"],
     img: "/interior-happy-hour-wall.jpg",
     accent: "#2e8fb0",

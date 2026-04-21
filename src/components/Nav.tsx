@@ -7,8 +7,8 @@ import { usePathname, useRouter } from "next/navigation";
 
 // All nav links in order — matches Fandi Mata flat layout
 const navItems = [
-  { label: "About",                 type: "scroll", id: "about"      },
-  { label: "Hours & Location",      type: "scroll", id: "footer"     },
+  { label: "About",                 type: "page",   href: "/about"   },
+  { label: "Hours & Location",      type: "page",   href: "/hours"   },
   { label: "Menu",                  type: "page",   href: "/menu"    },
   { label: "Events & Private Dining", type: "page", href: "/events"  },
   { label: "Happy Hour",            type: "scroll", id: "happy-hour" },
@@ -105,6 +105,21 @@ export default function Nav() {
             })}
           </div>
 
+          {/* Admin icon button */}
+          <Link
+            href="/admin"
+            title="Admin Panel"
+            className={`hidden lg:flex flex-shrink-0 items-center justify-center w-9 h-9 rounded-xl border transition-all duration-200 hover:border-[#c9a84c]/40 hover:bg-[#c9a84c]/8 ${
+              pathname === "/admin"
+                ? "border-[#c9a84c]/50 bg-[#c9a84c]/10"
+                : "border-[#2a2010]"
+            }`}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke={pathname === "/admin" ? "#c9a84c" : "#c8b89a"} strokeWidth="1.5" className="w-4 h-4" style={{ opacity: pathname === "/admin" ? 1 : 0.5 }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+            </svg>
+          </Link>
+
           {/* Reserve — solid block button */}
           <Link
             href="/reserve"
@@ -183,6 +198,18 @@ export default function Nav() {
                 style={{ background: "#c9a84c" }}
               >
                 Reserve a Table
+              </Link>
+              <Link
+                href="/admin"
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-2 py-2.5 px-3 rounded-xl font-inter text-sm transition-all duration-200 hover:bg-[#c9a84c]/8 mt-1 ${
+                  pathname === "/admin" ? "text-[#c9a84c]" : "text-[#c8b89a]/50 hover:text-[#c9a84c]"
+                }`}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+                Admin
               </Link>
             </div>
           </motion.div>

@@ -82,7 +82,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-[#c9a84c]/30 bg-black/30 backdrop-blur-md"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#f0d060] animate-pulse" />
-          <span className="font-inter text-xs text-[#c9a84c] tracking-[0.3em] uppercase">New York City · Est. 2014</span>
+          <span className="font-inter text-xs text-[#c9a84c] tracking-[0.3em] uppercase">New York City · Est. 2025</span>
         </motion.div>
 
         <motion.h1
@@ -149,9 +149,9 @@ export default function Hero() {
           className="mt-16 flex justify-center gap-10 sm:gap-16"
         >
           {[
-            { num: "10+", label: "Years" },
+            { num: "1 Yr", label: "In Business" },
             { num: "4 PM", label: "Happy Hour" },
-            { num: "50+", label: "Dishes" },
+            { num: "30+", label: "Dishes" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-playfair text-2xl font-bold text-[#c9a84c]">{s.num}</div>

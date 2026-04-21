@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Isla Bonita | Caribbean & Amalfi Restaurant in Inwood, NYC",
+  description:
+    "Caribbean soul meets Amalfi Coast warmth in Inwood, NYC. Signature cocktails, bold Caribbean flavors, happy hour daily at 4 PM. Reserve your table at 3950 10th Ave.",
+  alternates: { canonical: "https://islabonita.nyc" },
+};
 import Hero from "@/components/Hero";
 import Experiences from "@/components/Experiences";
 import Drinks from "@/components/Drinks";
@@ -13,6 +22,7 @@ import OrderStrip from "@/components/OrderStrip";
 export default function Page() {
   return (
     <>
+      <JsonLd />
       <Nav />
       <Hero />
 
@@ -60,8 +70,8 @@ export default function Page() {
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-4">
             {[
-              { num: "10+", label: "Years of Service", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z", accent: "#c9a84c" },
-              { num: "50+", label: "Signature Dishes", icon: "M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 13.5V12a3 3 0 00-6 0v1.5m6 0v1.875c0 1.035-.841 1.875-1.875 1.875h-2.25A1.875 1.875 0 019 15.375V13.5m6 0H9", accent: "#f0d060" },
+              { num: "1 Year", label: "Est. 2025", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z", accent: "#c9a84c" },
+              { num: "30+", label: "Menu Items", icon: "M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 13.5V12a3 3 0 00-6 0v1.5m6 0v1.875c0 1.035-.841 1.875-1.875 1.875h-2.25A1.875 1.875 0 019 15.375V13.5m6 0H9", accent: "#f0d060" },
               { num: "4 PM", label: "Happy Hour Daily", icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .23 2.798-1.144 2.798H3.942c-1.373 0-2.144-1.799-1.144-2.798l1.402-1.402", accent: "#2e8fb0" },
             ].map((s) => (
               <div

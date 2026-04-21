@@ -89,7 +89,7 @@ export default function EventsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-inter text-[#c9a84c] text-[11px] tracking-[0.4em] uppercase mb-4"
           >
-            Private Events · Washington Heights, NYC
+            Private Events · Inwood, NYC
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}

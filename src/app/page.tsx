@@ -1,10 +1,12 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Experiences from "@/components/Experiences";
 import Drinks from "@/components/Drinks";
 import Food from "@/components/Food";
 import HappyHour from "@/components/HappyHour";
 import Gallery from "@/components/Gallery";
 import Reserve from "@/components/Reserve";
+import NewsletterStrip from "@/components/NewsletterStrip";
 import SiteFooter from "@/components/SiteFooter";
 import OrderStrip from "@/components/OrderStrip";
 
@@ -77,12 +79,14 @@ export default function Page() {
         </div>
       </section>
 
+      <Experiences />
       <OrderStrip />
       <Drinks />
       <Food />
       <HappyHour />
       <Gallery />
       <Reserve />
+      <NewsletterStrip />
       <SiteFooter />
     </>
   );

@@ -76,38 +76,93 @@ export default function EventsPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="relative pt-36 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-36 pb-0 px-6 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/event-candles-setup.jpg" alt="Private events" fill className="object-cover object-center opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0805]/60 via-[#0a0805]/75 to-[#0a0805]" />
+          <Image src="/event-candles-setup.jpg" alt="Private events at Isla Bonita" fill className="object-cover object-center opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0805]/55 via-[#0a0805]/70 to-[#0a0805]" />
         </div>
-        <div className="absolute top-1/2 left-1/4 w-[500px] h-[300px] rounded-full bg-[#c9a84c]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[300px] rounded-full bg-[#c9a84c]/5 blur-[120px] pointer-events-none" />
 
-        <div className="relative max-w-3xl mx-auto text-center">
+        <div className="relative max-w-5xl mx-auto text-center pb-16">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-inter text-[#c9a84c] text-[11px] tracking-[0.4em] uppercase mb-4"
           >
-            Private Events
+            Private Events · Washington Heights, NYC
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-playfair text-5xl md:text-6xl text-white mb-6"
+            className="font-playfair text-5xl md:text-7xl text-white mb-6 leading-tight"
           >
             Host Your{" "}
             <span className="italic text-[#c9a84c]">Celebration</span>
+            <br />at Isla Bonita
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="font-inter text-[#c8b89a]/55 text-base max-w-xl mx-auto"
+            className="font-inter text-[#c8b89a]/55 text-base max-w-xl mx-auto mb-12"
           >
             Birthdays, weddings, baby showers, corporate nights — we host it all with Caribbean warmth and Amalfi elegance.
           </motion.p>
+
+          {/* Capacity stats — the big differentiator */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12"
+          >
+            {[
+              { num: "100+", label: "Max Guests", icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
+              { num: "Full Bar", label: "Buyout Available", icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .23 2.798-1.144 2.798H3.942c-1.373 0-2.144-1.799-1.144-2.798l1.402-1.402" },
+              { num: "50+", label: "Menu Items", icon: "M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 13.5V12a3 3 0 00-6 0v1.5m6 0v1.875c0 1.035-.841 1.875-1.875 1.875h-2.25A1.875 1.875 0 019 15.375V13.5m6 0H9" },
+              { num: "10+", label: "Years Hosting", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" },
+            ].map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + i * 0.08 }}
+                className="p-5 rounded-2xl border border-[#2a2010] bg-[#130f09]/80 text-center"
+                style={{ backdropFilter: "blur(8px)" }}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" className="w-5 h-5 mx-auto mb-2 opacity-60">
+                  <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
+                </svg>
+                <div className="font-playfair text-2xl font-bold text-[#c9a84c]">{s.num}</div>
+                <div className="font-inter text-[10px] text-[#c8b89a]/40 mt-1 uppercase tracking-wider">{s.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center"
+          >
+            <a
+              href="#inquiry"
+              className="cursor-pointer px-8 py-4 rounded-full bg-[#c9a84c] text-black font-semibold font-inter text-sm hover:bg-[#f0d060] transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-[#c9a84c]/20"
+            >
+              Plan Your Event
+            </a>
+            <a
+              href="tel:+16465591222"
+              className="px-8 py-4 rounded-full border border-white/15 text-white font-inter text-sm hover:border-[#c9a84c]/40 hover:bg-white/5 transition-all duration-200 flex items-center gap-2 justify-center"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              (646) 559-1222
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -169,7 +224,7 @@ export default function EventsPage() {
           </div>
 
           {/* Events inquiry form */}
-          <div className="max-w-3xl mx-auto">
+          <div id="inquiry" className="max-w-3xl mx-auto scroll-mt-24">
             <div className="text-center mb-10">
               <p className="font-inter text-[#c9a84c] text-[11px] tracking-[0.4em] uppercase mb-4">Plan Your Event</p>
               <h2 className="font-playfair text-4xl text-white">

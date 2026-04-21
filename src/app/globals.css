@@ -6,10 +6,15 @@
 }
 
 :root {
-  --gold:  #c9a84c;
-  --gold2: #e8c96a;
-  --dark:  #0a0805;
-  --dark2: #130f09;
+  --gold:      #c9a84c;
+  --gold2:     #e8c96a;
+  --lemon:     #f0d060;
+  --lemon2:    #ffe066;
+  --azure:     #1a6b8a;
+  --azure2:    #2e8fb0;
+  --terracotta:#c2603a;
+  --dark:      #0a0805;
+  --dark2:     #130f09;
 }
 
 html { scroll-behavior: smooth; }

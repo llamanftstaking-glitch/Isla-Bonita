@@ -60,11 +60,13 @@ export default function HappyHour() {
   return (
     <section id="happy-hour" className="py-28 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#0a0805]" />
-      {/* Radial gold glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#c9a84c]/5 blur-[120px] pointer-events-none" />
+      {/* Amalfi dual glow — lemon + azure */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#c9a84c]/4 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#1a6b8a]/6 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-[#f0d060]/5 blur-[90px] pointer-events-none" />
       {/* Subtle grid lines */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage: "linear-gradient(#c9a84c 1px, transparent 1px), linear-gradient(to right, #c9a84c 1px, transparent 1px)",
           backgroundSize: "80px 80px",
@@ -141,13 +143,23 @@ export default function HappyHour() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .23 2.798-1.144 2.798H3.942c-1.373 0-2.144-1.799-1.144-2.798l1.402-1.402" />
               </svg>
             </div>
-            <div>
+            <div className="flex-1">
               <div className="font-inter text-[10px] text-[#c9a84c] tracking-[0.35em] uppercase mb-1">
-                Cocktails &amp; Non-Alcoholic Drinks
+                Every Day · Dine-In Only
               </div>
-              <div className="font-playfair text-white text-xl mb-1">Appetizers + Drinks Specials</div>
-              <div className="font-inter text-xs text-[#c8b89a]/50">
-                Available daily, dine-in only. While supplies last.
+              <div className="font-playfair text-white text-xl mb-3">Appetizers + Drinks Specials</div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { label: "Appetizers", price: "$6" },
+                  { label: "Premium Cocktails", price: "$10" },
+                  { label: "Copa de Vino", price: "$6" },
+                  { label: "Beer", price: "$4" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#130f09] border border-[#2a2010]">
+                    <span className="font-inter text-[10px] text-[#c8b89a]/50 uppercase tracking-wider">{item.label}</span>
+                    <span className="font-playfair text-[#f0d060] text-sm font-bold">{item.price}</span>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="sm:ml-auto flex-shrink-0">

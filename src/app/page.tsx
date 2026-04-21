@@ -15,28 +15,59 @@ export default function Page() {
       {/* About strip */}
       <section id="about" className="relative py-24 px-6 bg-[#0d0a04] overflow-hidden">
         <div className="absolute inset-0 border-y border-[#c9a84c]/8" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#c9a84c]/3 via-transparent to-[#c9a84c]/3" />
+        {/* Amalfi azure + lemon gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a6b8a]/5 via-transparent to-[#f0d060]/4" />
+        {/* Lemon grove glow */}
+        <div className="absolute top-0 right-1/4 w-64 h-40 bg-[#f0d060]/5 blur-[80px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-64 h-40 bg-[#1a6b8a]/5 blur-[80px] pointer-events-none" />
+
+        {/* Decorative lemon slices */}
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block">
+          <svg viewBox="0 0 60 60" className="w-20 h-20" fill="none">
+            <circle cx="30" cy="30" r="28" stroke="#f0d060" strokeWidth="1.5" />
+            <circle cx="30" cy="30" r="20" stroke="#f0d060" strokeWidth="1" />
+            {[0,45,90,135,180,225,270,315].map((deg, i) => (
+              <line key={i} x1="30" y1="10" x2="30" y2="30" stroke="#f0d060" strokeWidth="1"
+                transform={`rotate(${deg} 30 30)`} />
+            ))}
+          </svg>
+        </div>
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block">
+          <svg viewBox="0 0 60 60" className="w-16 h-16" fill="none">
+            <circle cx="30" cy="30" r="28" stroke="#f0d060" strokeWidth="1.5" />
+            <circle cx="30" cy="30" r="20" stroke="#f0d060" strokeWidth="1" />
+            {[0,45,90,135,180,225,270,315].map((deg, i) => (
+              <line key={i} x1="30" y1="10" x2="30" y2="30" stroke="#f0d060" strokeWidth="1"
+                transform={`rotate(${deg} 30 30)`} />
+            ))}
+          </svg>
+        </div>
+
         <div className="relative max-w-5xl mx-auto">
+          {/* Amalfi label */}
+          <p className="font-inter text-[11px] tracking-[0.4em] uppercase text-center mb-4 text-[#1a6b8a]">
+            Amalfi Meets Caribbean
+          </p>
           <blockquote className="font-playfair italic text-2xl md:text-3xl lg:text-4xl text-[#c8b89a]/70 leading-relaxed text-center mb-12">
-            "A corner of the Caribbean in the heart of New York City —{" "}
-            <span className="text-[#c9a84c] not-italic">bold flavors, warm hospitality,</span>{" "}
-            and drinks that tell a story."
+            "Where the lemon groves of the Amalfi Coast meet the{" "}
+            <span className="text-[#c9a84c] not-italic">bold spirit of the Caribbean</span>{" "}
+            — right here in New York City."
           </blockquote>
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-4">
             {[
-              { num: "10+", label: "Years of Service", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" },
-              { num: "50+", label: "Signature Dishes", icon: "M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 13.5V12a3 3 0 00-6 0v1.5m6 0v1.875c0 1.035-.841 1.875-1.875 1.875h-2.25A1.875 1.875 0 019 15.375V13.5m6 0H9" },
-              { num: "4 PM", label: "Happy Hour Daily", icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .23 2.798-1.144 2.798H3.942c-1.373 0-2.144-1.799-1.144-2.798l1.402-1.402" },
+              { num: "10+", label: "Years of Service", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z", accent: "#c9a84c" },
+              { num: "50+", label: "Signature Dishes", icon: "M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 13.5V12a3 3 0 00-6 0v1.5m6 0v1.875c0 1.035-.841 1.875-1.875 1.875h-2.25A1.875 1.875 0 019 15.375V13.5m6 0H9", accent: "#f0d060" },
+              { num: "4 PM", label: "Happy Hour Daily", icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .23 2.798-1.144 2.798H3.942c-1.373 0-2.144-1.799-1.144-2.798l1.402-1.402", accent: "#2e8fb0" },
             ].map((s) => (
               <div
                 key={s.label}
                 className="group text-center p-6 rounded-2xl bg-[#130f09]/60 border border-[#2a2010] hover:border-[#c9a84c]/30 transition-all duration-300"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#c9a84c]/50 mx-auto mb-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 mx-auto mb-3" style={{ color: s.accent + "80" }}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
                 </svg>
-                <div className="font-playfair text-3xl md:text-4xl text-[#c9a84c] font-bold">{s.num}</div>
+                <div className="font-playfair text-3xl md:text-4xl font-bold" style={{ color: s.accent }}>{s.num}</div>
                 <div className="font-inter text-xs text-[#c8b89a]/40 mt-2 tracking-widest uppercase">{s.label}</div>
               </div>
             ))}
@@ -53,10 +84,12 @@ export default function Page() {
       {/* Footer */}
       <footer className="relative bg-[#080604] border-t border-[#c9a84c]/10 py-16 px-6 overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[#c9a84c]/5 blur-[80px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-64 h-32 bg-[#1a6b8a]/4 blur-[70px] pointer-events-none" />
         <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <p className="font-playfair text-2xl text-[#c9a84c] mb-1">Isla Bonita</p>
-            <p className="font-inter text-xs text-[#c8b89a]/35 tracking-widest uppercase">New York City</p>
+            <p className="font-inter text-xs text-[#c8b89a]/35 tracking-widest uppercase mb-1">New York City</p>
+            <p className="font-inter text-xs text-[#c8b89a]/25">3950 10th Ave Suite B, NY 10034</p>
           </div>
           <div className="flex gap-8 text-center">
             {["About", "Menu", "Gallery", "Reserve"].map((l) => (
@@ -65,6 +98,7 @@ export default function Page() {
           </div>
           <div className="text-right">
             <p className="font-inter text-xs text-[#c8b89a]/25">Happy Hour · Mon – Sun · 4–7 PM</p>
+            <p className="font-inter text-[10px] text-[#1a6b8a]/40 mt-1 italic">Amalfi Meets Caribbean · Est. 2014</p>
             <p className="font-inter text-xs text-[#c8b89a]/20 mt-1">© {new Date().getFullYear()} Isla Bonita. All rights reserved.</p>
           </div>
         </div>

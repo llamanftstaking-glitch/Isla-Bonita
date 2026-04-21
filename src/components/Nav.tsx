@@ -2,12 +2,27 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-const links = ["About", "Drinks", "Food", "Happy Hour", "Gallery", "Reserve"];
+const pageLinks = [
+  { label: "Menu", href: "/menu" },
+  { label: "Catering", href: "/catering" },
+  { label: "Events", href: "/events" },
+];
+
+const homeScrollLinks = [
+  { label: "About", id: "about" },
+  { label: "Gallery", id: "gallery" },
+  { label: "Happy Hour", id: "happy-hour" },
+];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -15,9 +30,13 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
+  const handleHomeScroll = (id: string) => {
     setOpen(false);
-    document.getElementById(id.toLowerCase().replace(" ", "-"))?.scrollIntoView({ behavior: "smooth" });
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/#${id}`);
+    }
   };
 
   return (
@@ -38,32 +57,66 @@ export default function Nav() {
         }}
       >
         <div className="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between">
-          <button onClick={() => scrollTo("hero")} className="cursor-pointer flex items-center gap-2.5">
+          {/* Logo */}
+          <Link href="/" className="cursor-pointer flex items-center gap-2.5">
             <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#c9a84c]/30">
               <Image src="/logo.jpg" alt="Isla Bonita" fill className="object-cover" />
             </div>
             <span className="font-playfair text-base font-bold text-[#c9a84c] hidden sm:block tracking-wide">
               Isla Bonita
             </span>
-          </button>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-0.5">
-            {links.map((l) => (
+            {/* Page links */}
+            {pageLinks.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`px-3.5 py-1.5 text-[13px] font-inter transition-colors duration-200 rounded-lg hover:bg-[#c9a84c]/8 ${
+                  pathname === l.href
+                    ? "text-[#c9a84c] font-medium"
+                    : "text-[#c8b89a]/70 hover:text-[#c9a84c]"
+                }`}
+              >
+                {l.label}
+              </Link>
+            ))}
+
+            {/* Home scroll links */}
+            {homeScrollLinks.map((l) => (
               <button
-                key={l}
-                onClick={() => scrollTo(l)}
+                key={l.id}
+                onClick={() => handleHomeScroll(l.id)}
                 className="cursor-pointer px-3.5 py-1.5 text-[13px] font-inter text-[#c8b89a]/70 hover:text-[#c9a84c] transition-colors duration-200 rounded-lg hover:bg-[#c9a84c]/8"
               >
-                {l}
+                {l.label}
               </button>
             ))}
-            <button
-              onClick={() => scrollTo("Reserve")}
-              className="cursor-pointer ml-2 px-5 py-2 rounded-full text-[13px] font-semibold font-inter text-black bg-[#c9a84c] hover:bg-[#f0d060] transition-all duration-200 hover:scale-105 active:scale-95 shadow-md shadow-[#c9a84c]/20"
+
+            {/* Divider */}
+            <div className="w-px h-4 bg-[#c9a84c]/20 mx-1" />
+
+            {/* Order Online */}
+            <Link
+              href="/menu#order"
+              className="px-3.5 py-1.5 text-[13px] font-inter text-[#2e8fb0]/80 hover:text-[#2e8fb0] transition-colors duration-200 rounded-lg hover:bg-[#1a6b8a]/10"
             >
-              Book a Table
-            </button>
+              Order Online
+            </Link>
+
+            {/* Reserve CTA */}
+            <Link
+              href="/reserve"
+              className={`ml-2 px-5 py-2 rounded-full text-[13px] font-semibold font-inter transition-all duration-200 hover:scale-105 active:scale-95 shadow-md shadow-[#c9a84c]/20 ${
+                pathname === "/reserve"
+                  ? "bg-[#f0d060] text-black"
+                  : "bg-[#c9a84c] text-black hover:bg-[#f0d060]"
+              }`}
+            >
+              Reserve
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -97,25 +150,53 @@ export default function Nav() {
             }}
           >
             <div className="px-5 py-4 flex flex-col gap-1">
-              {links.map((l, i) => (
-                <motion.button
-                  key={l}
+              {pageLinks.map((l, i) => (
+                <motion.div
+                  key={l.href}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04 }}
-                  onClick={() => scrollTo(l)}
+                >
+                  <Link
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className={`block py-2.5 px-3 rounded-xl font-inter text-sm transition-all duration-200 hover:bg-[#c9a84c]/8 ${
+                      pathname === l.href ? "text-[#c9a84c]" : "text-[#c8b89a]/80 hover:text-[#c9a84c]"
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                </motion.div>
+              ))}
+              {homeScrollLinks.map((l, i) => (
+                <motion.button
+                  key={l.id}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (pageLinks.length + i) * 0.04 }}
+                  onClick={() => handleHomeScroll(l.id)}
                   className="cursor-pointer text-left py-2.5 px-3 rounded-xl text-[#c8b89a]/80 hover:text-[#c9a84c] hover:bg-[#c9a84c]/8 font-inter text-sm transition-all duration-200"
                 >
-                  {l}
+                  {l.label}
                 </motion.button>
               ))}
               <div className="h-px bg-[#c9a84c]/15 my-1" />
-              <button
-                onClick={() => scrollTo("Reserve")}
-                className="cursor-pointer w-full py-3 rounded-xl bg-[#c9a84c] text-black font-semibold font-inter text-sm hover:bg-[#f0d060] transition-all duration-200"
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+                <Link
+                  href="/menu#order"
+                  onClick={() => setOpen(false)}
+                  className="block py-2.5 px-3 rounded-xl font-inter text-sm text-[#2e8fb0]/80 hover:text-[#2e8fb0] hover:bg-[#1a6b8a]/10 transition-all duration-200"
+                >
+                  Order Online
+                </Link>
+              </motion.div>
+              <Link
+                href="/reserve"
+                onClick={() => setOpen(false)}
+                className="block w-full py-3 rounded-xl bg-[#c9a84c] text-black font-semibold font-inter text-sm text-center hover:bg-[#f0d060] transition-all duration-200"
               >
-                Book a Table
-              </button>
+                Reserve a Table
+              </Link>
             </div>
           </motion.div>
         )}

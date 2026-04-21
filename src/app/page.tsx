@@ -5,6 +5,8 @@ import Food from "@/components/Food";
 import HappyHour from "@/components/HappyHour";
 import Gallery from "@/components/Gallery";
 import Reserve from "@/components/Reserve";
+import SiteFooter from "@/components/SiteFooter";
+import OrderStrip from "@/components/OrderStrip";
 
 export default function Page() {
   return (
@@ -75,34 +77,13 @@ export default function Page() {
         </div>
       </section>
 
+      <OrderStrip />
       <Drinks />
       <Food />
       <HappyHour />
       <Gallery />
       <Reserve />
-
-      {/* Footer */}
-      <footer className="relative bg-[#080604] border-t border-[#c9a84c]/10 py-16 px-6 overflow-hidden">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[#c9a84c]/5 blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-64 h-32 bg-[#1a6b8a]/4 blur-[70px] pointer-events-none" />
-        <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <p className="font-playfair text-2xl text-[#c9a84c] mb-1">Isla Bonita</p>
-            <p className="font-inter text-xs text-[#c8b89a]/35 tracking-widest uppercase mb-1">New York City</p>
-            <p className="font-inter text-xs text-[#c8b89a]/25">3950 10th Ave Suite B, NY 10034</p>
-          </div>
-          <div className="flex gap-8 text-center">
-            {["About", "Menu", "Gallery", "Reserve"].map((l) => (
-              <span key={l} className="font-inter text-xs text-[#c8b89a]/35 hover:text-[#c9a84c]/70 transition-colors cursor-pointer tracking-wider uppercase">{l}</span>
-            ))}
-          </div>
-          <div className="text-right">
-            <p className="font-inter text-xs text-[#c8b89a]/25">Happy Hour · Mon – Sun · 4–7 PM</p>
-            <p className="font-inter text-[10px] text-[#1a6b8a]/40 mt-1 italic">Amalfi Meets Caribbean · Est. 2014</p>
-            <p className="font-inter text-xs text-[#c8b89a]/20 mt-1">© {new Date().getFullYear()} Isla Bonita. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
